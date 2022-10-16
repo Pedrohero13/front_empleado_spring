@@ -1,0 +1,20 @@
+<div class="container">
+  <h1 class="h3 mb-3 fw-normal text-center">Empleados registrados </h1>
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Telefono</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id = "registre" *ngFor="let empleado of empleadosList; let i = index">
+                <td>{{empleado.id}}</td>
+                <td>{{empleado.nombre}}</td>
+                <td>{{empleado.direccion}}</td>
+                <td>{{empleado.telefono}}</td>
+                
+      </table>
+</div>
