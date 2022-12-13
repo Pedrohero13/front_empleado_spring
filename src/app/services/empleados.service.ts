@@ -9,7 +9,7 @@ import { empleado } from './empleadoApi';
 })
 export class EmpleadosService {
 constructor(private httpClient: HttpClient) { }
-    
+
   createEmpleado(empleadoPersis: empleado): Observable<any> {
     return this.httpClient.post("http://localhost:8000/api/empleado", empleadoPersis);
   }
@@ -18,5 +18,13 @@ constructor(private httpClient: HttpClient) { }
     return this.httpClient.get("http://localhost:8000/api/empleado");
   }
 
-  
+  updateEmpleado(empleadoPersis: empleado): Observable<any> {
+    console.log(empleadoPersis)
+    return this.httpClient.put("http://localhost:8000/api/empleado/"+empleadoPersis.dni, empleadoPersis);
+  }
+  deleteEmpleado(dni: string): Observable<any> {
+
+    return this.httpClient.delete("http://localhost:8000/api/empleado/"+dni);
+  }
+
 }

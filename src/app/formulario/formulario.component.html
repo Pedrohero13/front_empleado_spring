@@ -1,30 +1,32 @@
 <div class="container-fluid">
     <div class="text-center">
-        <div class="form-signin"> 
+        <div class="form-signin">
             <div class="col ">
                 <form >
-                    
+
                     <h1 class="h3 mb-3 fw-normal">Nuevo empleado </h1>
                     <div class="form-floating mb-4">
                         <input type="text" class="form-control" name= "item1" placeholder="life goal" [(ngModel)]="nombre">
                         <label for="item1">Nombre</label>
                     </div>
-    
+
                     <div class="form-floating mb-4">
                         <input type="text" class="form-control" name= "item2" placeholder="life goal" [(ngModel)]="direccion">
                         <label for="item2">Direccion</label>
                     </div>
-    
+
                     <div class="form-floating mb-4">
-                        <input type="text" class="form-control" name= "item3" placeholder="life goal"[(ngModel)]="telefono">
+                        <input type="text" class="form-control" name= "item3" placeholder="life goal" [(ngModel)]="telefono">
                         <label for="item3">Telefono</label>
                     </div>
-    
-                    
+
+
                     <div class="form-floating mb-4">
-                        <input type="submit" class="btn btn-warning " value="Guardar"  (click)="createEmpleado()">
+                        <input type="submit" class="btn btn-outline-success " value="Guardar"  (click)="createEmpleado()">
+                        <input type="submit" class="btn btn-outline-success" value="Inicio" (click)="gotoHome()">
                     </div>
-                    
+
+
                 </form>
             </div>
         </div>

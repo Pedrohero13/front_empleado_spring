@@ -1,24 +1,37 @@
+
 <header>
-  <nav class="navbar navbar-dark bg-dark fixed-top">
+  <nav class="navbar  navbar-expand-lg  fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink ="inicio">Empleados</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <a class="navbar-brand text-white" >Empleados</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel" >Menú Empleados</h5>
+          <h5 class="offcanvas-title " id="offcanvasNavbarLabel">Menú Empleados</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body bg-dark">
+        <div class="offcanvas-body ">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink ="inicio">Inicio</a>
+            <li *ngIf="(empleado?.userName ?? 0) !== ''" class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" data-bs-dismiss="offcanvas" aria-label="Close" routerLink="inicio">Inicio</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink ="formulario">Registro</a>
+            <li *ngIf="(empleado?.userName ?? 0) !== ''" class="nav-item">
+              <a class="nav-link active text-white"data-bs-dismiss="offcanvas" aria-label="Close" routerLink="formulario">Registro</a>
             </li>
-            
+
+            <li *ngIf="(empleado?.userName ?? 0) !== ''" class="nav-item dropdown dropstart">
+              <a class="nav-link dropdown-toggle text-white"  id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false"><strong>{{empleado?.userName}}</strong>
+
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><a data-bs-dismiss="offcanvas" aria-label="Close" routerLink = "login" class="dropdown-item active text-white" (click)="deleteUser()">Cerrar sesión</a></li>
+
+              </ul>
+            </li>
+
           </ul>
         </div>
       </div>
@@ -27,13 +40,24 @@
 </header>
 
 <main role="main">
-  <div class="container-fluid"><router-outlet></router-outlet></div>
-  
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+
 
   <!-- FOOTER -->
   <footer class="container">
     <div class="footer fixed-bottom bg-ligth text-center text-muted">
-      <small>Copyright &copy; 2021</small>
+      <div
+        class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+        <!-- Copyright -->
+        <div class="text-white mb-3 mb-md-0">
+          © 2022. Universidad Veracruzana. Todos los derechos reservados
+        </div>
+        <!-- Copyright -->
+
+
+      </div>
     </div>
   </footer>
 </main>

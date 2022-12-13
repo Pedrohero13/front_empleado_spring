@@ -8,19 +8,20 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    FormularioComponent
+    FormularioComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,8 @@
               <th scope="col">Nombre</th>
               <th scope="col">Direccion</th>
               <th scope="col">Telefono</th>
+              <th scope="col">Modificar</th>
+              <th scope="col">Eliminar</th>
             </tr>
           </thead>
           <tbody>
@@ -15,6 +17,82 @@
                 <td>{{empleado.nombre}}</td>
                 <td>{{empleado.direccion}}</td>
                 <td>{{empleado.telefono}}</td>
-                
+                <td><button type="button"
+                  class="btn btn-outline-success " (click)="updateModal(i)"
+                  data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                  >Modificar</button></td>
+                <td><button type="button" class="btn btn-outline-danger" (click)="updateModal(i)"
+                  data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  >Eliminar</button></td>
+
       </table>
+
 </div>
+
+
+<!-- Modal -->
+<div  class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modificar empleado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div *ngIf ="selectEmpleado !== undefined" class="modal-body">
+        <form >
+
+          <div class="form-floating mb-4">
+            <input type="text" class="form-control"  name="item1" placeholder="life goal" [(ngModel)]="selectEmpleado.nombre">
+            <label for="item1">Nombre</label>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input type="text" class="form-control" name="item2" placeholder="life goal" [(ngModel)]="selectEmpleado.direccion">
+            <label for="item2">Direccion</label>
+          </div>
+
+          <div class="form-floating mb-4">
+            <input type="text" class="form-control" name="item3" placeholder="life goal" [(ngModel)]="selectEmpleado.telefono">
+            <label for="item3">Telefono</label>
+          </div>
+
+
+
+
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="updateEmpleado()">Modificar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div *ngIf ="selectEmpleado !== undefined" class="modal-body">
+        <p>Estas seguro que deseas eliminar el empleado {{selectEmpleado.nombre}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Calcelar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click) ="deleteEmpleado()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
